@@ -1,7 +1,5 @@
 /*
-
 	DDL - Data Definition Language
-
 */
 --Criando DATABASE
 
@@ -57,24 +55,23 @@ CREATE TABLE Categoria (
 	IdCategoria INT PRIMARY KEY IDENTITY NOT NULL,
 	Tipo        VARCHAR(25)
 );
-
-CREATE TABLE ObjetivoAluno(
-	IdObjetivoAluno INT PRIMARY KEY IDENTITY NOT NULL,
-	Nota DECIMAL(10,2),
-	DataEntrega DATETIME,
-	--Fk
-	IdAlunoUsuario  INT FOREIGN KEY REFERENCES AlunoUsuario (IdAlunoUsuario),
-);
-
 CREATE TABLE Objetivo(
 	IdObjetivo INT PRIMARY KEY IDENTITY NOT NULL,
 	Descricao  VARCHAR(150),
 	--Fk
 	IdProfessorUsuario INT FOREIGN KEY REFERENCES ProfessorUsuario (IdProfessorUsuario),
 	IdCategoria        INT FOREIGN KEY REFERENCES Categoria        (IdCategoria),
-	IdObjetivoAluno    INT FOREIGN KEY REFERENCES ObjetivoAluno   (IdObjetivoAluno)
+
 );
 
+CREATE TABLE ObjetivoAluno(
+	IdObjetivoAluno INT PRIMARY KEY IDENTITY NOT NULL,
+	Nota DECIMAL(10,2) DEFAULT NULL,
+	DataEntrega DATETIME,
+	--Fk
+	IdAlunoUsuario  INT FOREIGN KEY REFERENCES AlunoUsuario (IdAlunoUsuario),
+	IdObjetivo		INT FOREIGN KEY REFERENCES Objetivo (IdObjetivo)
+);
 
 CREATE TABLE Post(
 	IdPost INT PRIMARY KEY IDENTITY NOT NULL,
@@ -89,5 +86,4 @@ ALTER TABLE ObjetivoAluno
 ADD CONSTRAINT DF_ObjetivoAluno_Nota
 DEFAULT 0 for Nota
 
---DROP DATABASE EduX
-
+-- DROP DATABASE EduX

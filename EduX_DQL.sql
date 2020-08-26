@@ -1,7 +1,5 @@
 /* 
-
 DQL - Data Query Language
-
 */
 USE EduX;
 
@@ -44,7 +42,3 @@ FROM AlunoUsuario,Objetivo;
 SELECT * FROM Mostrar_IdAluno(1)
 
 --DROP FUNCTION Mostrar_IdAluno
-
-
-
-

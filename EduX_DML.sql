@@ -1,7 +1,5 @@
 /* 
-
 DML - Data Manipulation Language
-
 */
 USE EduX;
 -- Inserindo valores a tabela curso
@@ -36,13 +34,15 @@ INSERT INTO AlunoUsuario (Email, Nome, Senha, IdTurma) VALUES
 INSERT INTO Post (Titulo, Descricao, IdProfessorUsuario, IdAlunoUsuario) VALUES
 	('Lição de banco de dados', 'Preciso de ajuda nessa atividade', '1' , '1');
 
--- Inserindo valores a tabela ObjetivoAluno
-INSERT INTO ObjetivoAluno (DataEntrega, IdAlunoUsuario) VALUES
-	('2020-09-12T00:00:00', '2'),('2020-09-12T00:00:00', '1'),('2020-09-12T00:00:00', '1');
--- Com Nota
-INSERT INTO ObjetivoAluno (Nota,DataEntrega, IdAlunoUsuario) VALUES
-	('3','2020-09-12T00:00:00', '1'),('10','2020-09-12T00:00:00', '1'),('5','2020-09-12T00:00:00', '1') ;
-
 -- Inserindo valores a tabela Objetivo
-INSERT INTO Objetivo (Descricao, IdProfessorUsuario, IdObjetivoAluno, IdCategoria) VALUES
-	('Identificar as características de banco de dados relacionais e não-relacionais', '1', '1', '1');
+INSERT INTO Objetivo (Descricao, IdProfessorUsuario, IdCategoria) VALUES
+	('Identificar as características de banco de dados relacionais e não-relacionais', '1', '1');
+
+-- Inserindo valores a tabela ObjetivoAluno
+INSERT INTO ObjetivoAluno (DataEntrega, IdAlunoUsuario, IdObjetivo) VALUES
+	('2020-09-12T00:00:00', '1', '1'),('2020-09-12T00:00:00', '1', '1'),('2020-09-12T00:00:00', '1', '1');
+
+-- Com Nota
+INSERT INTO ObjetivoAluno (Nota,DataEntrega, IdAlunoUsuario, IdObjetivo) VALUES
+	('3','2020-09-12T00:00:00', '1', '1'),('10','2020-09-12T00:00:00', '1', '1'),('5','2020-09-12T00:00:00', '1', '1') ;
+
